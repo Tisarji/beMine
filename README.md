@@ -66,6 +66,7 @@ npm start
   <img src="https://raw.githubusercontent.com/github/explore/main/topics/typescript/typescript.png" alt="TypeScript" width="40" height="40" />
 </p>
 
-## 💌 Inspiration
+<!-- ## 💌 Inspiration
 
 This project was created as a sweet digital gesture of affection — every second counts when it comes to love 💗
+!-->
