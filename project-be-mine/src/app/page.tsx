@@ -7,6 +7,8 @@ export default function Home() {
 	const [isAnimating, setIsAnimating] = useState(false);
 
 	const handleAccept = () => {
+		const now = new Date().toISOString();
+		localStorage.setItem('together_start_date', now);
 		setIsAnimating(true);
 		setTimeout(() => {
 			router.push('/together');

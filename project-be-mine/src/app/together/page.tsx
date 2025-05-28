@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 
 export default function TogetherPage() {
-	const [startDate] = useState<Date>(new Date());
+	const [startDate, setStartDate] = useState<Date | null>(null);
 	const [duration, setDuration] = useState({
 		days: 0,
 		hours: 0,
@@ -11,6 +11,19 @@ export default function TogetherPage() {
 	});
 
 	useEffect(() => {
+		const storedDate = localStorage.getItem('together_start_date');
+		if (storedDate) {
+			setStartDate(new Date(storedDate));
+		} else {
+			const now = new Date();
+			setStartDate(now);
+			localStorage.setItem('together_start_date', now.toISOString());
+		}
+	}, []);
+
+	useEffect(() => {
+		if (!startDate) return;
+
 		const interval = setInterval(() => {
 			const now = new Date();
 			const diff = now.getTime() - startDate.getTime();
@@ -25,6 +38,10 @@ export default function TogetherPage() {
 
 		return () => clearInterval(interval);
 	}, [startDate]);
+
+	if (!startDate) {
+		return <div className="text-center mt-10">Loading...</div>;
+	}
 
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-emerald-50 flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
