@@ -1,5 +1,5 @@
-# 💙 beMind
-
+# 💙 project-be-mind
+![image](https://github.com/user-attachments/assets/025f7aa2-7512-4521-b309-230c7416f76f)
 A heartfelt web project built with **Next.js** and **Tailwind CSS**, celebrating beautiful moments and love stories.
 
 ## ✨ Features
